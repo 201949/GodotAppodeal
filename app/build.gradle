@@ -3,8 +3,8 @@ plugins {
 }
 
 ext.libraryName = "Appodeal"
-ext.libraryVersionCode = 1
-ext.libraryVersionName = "1.0.1"
+ext.libraryVersionCode = 4
+ext.libraryVersionName = "3.3.2"
 
 android {
     namespace 'com.magikelle.godotappodeal'
@@ -15,7 +15,7 @@ android {
         targetSdk 34
         versionCode libraryVersionCode
         versionName libraryVersionName
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -37,8 +37,11 @@ android {
 }
 
 dependencies {
-
+    compileOnly platform('com.google.firebase:firebase-bom:32.7.0')
+    compileOnly 'com.google.firebase:firebase-analytics'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation "com.appodeal.ads:sdk:3.2.0.+"
-    compileOnly "org.godotengine:godot:3.5.2.stable"
+    implementation 'com.android.billingclient:billing-ktx:6.0.1'
+    implementation 'com.bigossp:max-mediation:4.8.2.0'
+    implementation 'com.appodeal.ads:sdk:3.3.2.0'
+    compileOnly 'org.godotengine:godot:3.5.2.stable'
 }

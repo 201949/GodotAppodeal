@@ -2,9 +2,9 @@
 
 name="Appodeal"
 binary_type="local"
-binary="Appodeal-1.0.1-release.aar"
+binary="Appodeal-3.3.2-release.aar"
 
 [dependencies]
 
-remote=["com.appodeal.ads:sdk:3.2.0.+"]
+remote=["com.appodeal.ads:sdk:3.3.2.0"]
 custom_maven_repos=["https://artifactory.appodeal.com/appodeal/"]

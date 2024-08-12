@@ -4,6 +4,7 @@
         <meta-data
             android:name="org.godotengine.plugin.v1.Appodeal"
             android:value="com.magikelle.godotappodeal.AppodealPlugin" />
+
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
