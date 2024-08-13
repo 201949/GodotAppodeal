@@ -137,7 +137,7 @@ func _ready():
 ```
 This script will to initialize Appodeal plugin with some parameters.
 
-*For example:*
+***For example:***
 
    `appodeal_test = false` -- settings for Ads mode: `true` - testing, `false` - production
    
@@ -145,8 +145,7 @@ This script will to initialize Appodeal plugin with some parameters.
 
 Next, in your project, in scripts, create calls to the Appodeal singleton methods where you want to display Ads.
 
-*For example:*
-
+***For example:***
 ```gdscript
 # for Banner
 Appodeal.show(Appodeal.ShowStyle.BANNER_TOP) # See official documentation for parameters
@@ -162,7 +161,7 @@ if Appodeal.is_loaded(Appodeal.AdType.REWARDED_VIDEO):
 ```
 You can then process the signals to create some events for your needs.
 
-*For example:*
+***For example:***
 ```gdscript
 func _ready():
 	Appodeal.connect("on_interstitial_failed_to_load",self,"_on_Appodeal_interstitial_failed_to_load")
@@ -214,7 +213,7 @@ func _on_Appodeal_rewarded_video_expired():
 
 You can also get some statistics by calling `log_event` method with your own parameters.
 
-*For example:*
+***For example:***
 ```gdscript
 Appodeal.log_event("gb_main_menu_open", {"screen":name})
 ```
