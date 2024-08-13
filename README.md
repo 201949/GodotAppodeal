@@ -124,7 +124,7 @@ extends Node
 const _ANDROID_APP_KEY: String = "Your Appodeal App Key"
 var appodeal_test = false
 var appodeal_log_level = 2 # 0 -Verbose, 1 - Debug, 2 - None
-var appodeal_fb = true
+var appodeal_stat = true
 
 func _ready():
 	if OS.get_name() == "Android":
@@ -152,12 +152,12 @@ Appodeal.show(Appodeal.ShowStyle.BANNER_TOP) # See official documentation for pa
 
 # for Interstitial
 if Appodeal.is_loaded(Appodeal.AdType.INTERSTITIAL):
-		Appodeal.show(Appodeal.ShowStyle.INTERSTITIAL)
+	Appodeal.show(Appodeal.ShowStyle.INTERSTITIAL)
 
 # for Rewarded
 if Appodeal.is_loaded(Appodeal.AdType.REWARDED_VIDEO):
-		Appodeal.show(Appodeal.ShowStyle.REWARDED_VIDEO)
-		print("Appodeal Show Reward!")
+	Appodeal.show(Appodeal.ShowStyle.REWARDED_VIDEO)
+	print("Appodeal Show Reward!")
 ```
 You can then process the signals to create some events for your needs.
 
@@ -215,6 +215,7 @@ You can also get some statistics by calling `log_event` method with your own par
 
 ***For example:***
 ```gdscript
-Appodeal.log_event("gb_main_menu_open", {"screen":name})
+if appodeal_stat:
+	Appodeal.log_event("gb_main_menu_open", {"screen":name})
 ```
 **See official documentation for [Event Tracking](https://docs.appodeal.com/ru/android/advanced/event-tracking)**
