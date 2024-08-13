@@ -11,7 +11,7 @@ A Godot plugin for integrating Appodeal SDK 3.3.2 with Godot 3.5.2
 
 - **Fully integrated with the Appodeal SDK Full Package**
 - **Meta and Firebase analytics connectivity options** (needed for the [Appodeal Accelerator Program](https://docs.appodeal.com/accelerator/introduction)) 
-- **Verbose Logging**
+- **Verbose Logging** (needed for the [Appodeal Accelerator Program](https://docs.appodeal.com/accelerator/introduction)) 
 
 ## Disclaimer
 
@@ -75,11 +75,37 @@ To compile the project yourself:
 3. In the Android export template "Options" section under "Permissions", set "Access Network State" and "Internet" to "On".
     Also, add the following permission under "Custom Permissions": `com.google.android.gms.permission.AD_ID` (For apps that use the IMA SDK version 3.24.0 or lower and are targeting Android 13, required the com.google.android.gms.permission.AD_ID permission in the AndroidManifest.xml)
 
-4. In `android/build/build.gradle` you need to make some changes for use with Meta and Firebase analytics connectivity:
+4. In `android/build/build.gradle` you need to make some changes for use with Firebase analytics connectivity (**marked by green-olive color**):
 
    ![Pic 03](https://raw.githubusercontent.com/201949/GodotAppodeal/main/pic_03.png)
 
-   or as below marked as `//Changes for analytics connectivity`:
+   And you need to get google-services.json from the FireBase "Project Overview >> Project Settings" section of your FireBase project and place it in the "/android/build" folder of your Godot project.
+
+5. Also you need to make some xml changes in case to use Meta event tracking (needed for the [Appodeal Accelerator Program](https://docs.appodeal.com/accelerator/introduction)).
+   
+   You need to create a `strings.xml` file in `/android/build/res/values` folder with contents like below:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="facebook_app_id">Your FaceBook App ID</string>
+  <string name="facebook_client_token">Your FaceBook Client Token</string>
+</resources>
+```
+
+And in the main `AndroidManifest.xml` (located in `/android/build` of your project) you need to add metadata for use with AdMob and meta after <!--CHUNK_APPLICATION_END-->:
+```xml
+	<meta-data
+		android:name="com.google.android.gms.ads.APPLICATION_ID"
+		android:value="Your AdMob Application ID"/>
+		
+	<meta-data
+		android:name="com.facebook.sdk.ApplicationId"
+		android:value="@string/facebook_app_id" />
+	
+	<meta-data
+		android:name="com.facebook.sdk.ClientToken"
+		android:value="@string/facebook_client_token" />
+```
 
 ## Example of Usage:
 
