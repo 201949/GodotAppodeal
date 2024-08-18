@@ -92,7 +92,7 @@ To compile the project yourself:
 </resources>
 ```
 
-And in the main `AndroidManifest.xml` (located in `/android/build` of your project) you need to add metadata for use with AdMob and meta after <!--CHUNK_APPLICATION_END-->:
+And in the main `AndroidManifest.xml` (located in `/android/build` of your project) you need to add metadata for use with AdMob and Meta after <!--CHUNK_APPLICATION_END-->:
 ```xml
 	<meta-data
 		android:name="com.google.android.gms.ads.APPLICATION_ID"
