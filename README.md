@@ -123,7 +123,7 @@ extends Node
 # Appodeal settings
 const _ANDROID_APP_KEY: String = "Your Appodeal App Key"
 var appodeal_test = false
-var appodeal_log_level = 2 # 0 -Verbose, 1 - Debug, 2 - None
+var appodeal_log_level = 0 # 0 - Verbose (Default for plugin), 1 - Debug, 2 - None
 var appodeal_stat = true
 
 func _ready():
